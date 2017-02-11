@@ -1,0 +1,52 @@
+{
+  "name": "pico-base",
+  "version": "1.0.0",
+  "description": "native functional js",
+  "main": "dist/pico-base.js",
+  "browser": "dist/pico-base.js",
+  "scripts": {
+    "clean": "rm -rf dist ; mkdir dist ;",
+    "build": "npm run clean ; node build.js src/index.js dist/pico-base.js",
+    "test": "jasmine test/test.js",
+    "test:remote": "npm run lint && BUILD=$(git rev-parse --short HEAD) karma start karma.conf.js",
+    "lint": "semistandard src/index.js test/test.js --fix | snazzy",
+    "watch": "nodemon --exec 'jasmine' test/test.js"
+  },
+  "keywords": [
+    "functional",
+    "fp",
+    "lambda",
+    "tiny",
+    "pico"
+  ],
+  "contributors": [
+    {
+      "email": "ronn.ross@gmail.com",
+      "name": "Ronn Ross",
+      "url": "https://github.com/ronnross"
+    },
+    {
+      "email": "contact@mattmcfarland.com",
+      "name": "Matt McFarland",
+      "url": "https://github.com/mattmcfarland"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ronnross/pico-base.git"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "jasmine": "^2.5.3",
+    "jasmine-node": "^1.14.5",
+    "jasmine-spec-reporter": "^3.2.0",
+    "karma": "^1.4.1",
+    "karma-browserstack-launcher": "^1.2.0",
+    "karma-cli": "^1.0.1",
+    "karma-jasmine": "^1.1.0",
+    "nodemon": "1.11.0",
+    "semistandard": "^9.2.1",
+    "snazzy": "6.0.0",
+    "strip-comments": "0.4.4"
+  }
+}
